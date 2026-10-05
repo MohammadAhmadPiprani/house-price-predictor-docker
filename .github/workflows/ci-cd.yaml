@@ -32,7 +32,7 @@ jobs:
 
     - name: Run pytest
       run: |
-        pytest 
+        PYTHONPATH=. pytest 
     - name: Build Docker Image
       run: |
         docker build -t House-Price-Prediction:latest . 
