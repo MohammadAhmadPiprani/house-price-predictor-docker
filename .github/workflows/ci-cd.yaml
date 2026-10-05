@@ -22,7 +22,7 @@ jobs:
         python -m pip install --upgrade pip 
         pip install -r requirements.txt
         pip install pytest flake8
-    - name: Run flake8
+    - name: Flake8 checking of code
       run: |
         git status
         git log -1 --oneline
@@ -36,5 +36,3 @@ jobs:
     - name: Build Docker Image
       run: |
         docker build -t House-Price-Prediction:latest . 
-        
-        
