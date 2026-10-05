@@ -35,4 +35,4 @@ jobs:
         PYTHONPATH=. pytest 
     - name: Build Docker Image
       run: |
-        docker build -t House-Price-Prediction:latest . 
+        docker build -t house_price_prediction:latest . 
