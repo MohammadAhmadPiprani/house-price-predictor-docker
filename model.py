@@ -11,5 +11,3 @@ lin = LinearRegression()
 lin.fit(x, y)
 
 pickle.dump(lin, open("model.pkl", "wb"))
- 
-
