@@ -45,7 +45,8 @@ jobs:
 
     - name: push to DockerHub
       run: |
-        docker tag ${{secrets.DOCKERHUB_USERNAME}}/house_price_prediction:${{ github.sha }}
+        docker tag house_price_prediction:${{ github.sha }} \
+          ${{secrets.DOCKERHUB_USERNAME}}/house_price_prediction:${{ github.sha }}
         docker push ${{secrets.DOCKERHUB_USERNAME}}/house_price_prediction:${{ github.sha }}
 
 
