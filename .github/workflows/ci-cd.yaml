@@ -47,7 +47,8 @@ jobs:
       run: |
         docker tag house_price_prediction:${{ github.sha }} \
           ${{secrets.DOCKERHUB_USERNAME}}/house_price_prediction:${{ github.sha }}
-        docker push ${{secrets.DOCKERHUB_USERNAME}}/house_price_prediction:${{ github.sha }}
+        docker push \ 
+          ${{secrets.DOCKERHUB_USERNAME}}/house_price_prediction:${{ github.sha }}
 
 
        
