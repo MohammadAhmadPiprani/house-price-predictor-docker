@@ -42,7 +42,7 @@ jobs:
         username: ${{secrets.DOCKERHUB_USERNAME}}
         password: ${{secrets.DOCKERHUB_TOKEN}}
     - name: push to DockerHub
-      run:
+      run: |
         docker push ${{secrets.DOCKERHUB_USERNAME}}house_price_prediction:${{ github.sha }}
 
 
