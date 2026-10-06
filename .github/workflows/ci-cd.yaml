@@ -35,4 +35,15 @@ jobs:
         PYTHONPATH=. pytest 
     - name: Build Docker Image
       run: |
-        docker build -t house_price_prediction:latest . 
+        docker build -t ${{secrets.DOCKERHUB_USERNAME}}house_price_prediction:${{ github.sha }} .
+    - name: login to DockerHub
+      uses: docker/login-actions@v3
+      with:
+        username: ${{secrets.DOCKERHUB_USERNAME}}
+        password: ${{secrets.DOCKERHUB_TOKEN}}
+    - name: push to DockerHub
+      run:
+        docker push ${{secrets.DOCKERHUB_USERNAME}}house_price_prediction:${{ github.sha }}
+
+
+       
