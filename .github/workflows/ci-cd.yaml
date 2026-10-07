@@ -50,5 +50,20 @@ jobs:
 
         docker push \
           ${{ secrets.DOCKERHUB_USERNAME }}/house_price_prediction:${{ github.sha }}
+    
+    - name: login to EC2
+      uses: appleboy/ssh-action@v1.2.2
+      with:
+        host: ${{secrets.PUBLIC_IP}}
+        username: ubuntu
+        key: ${{secrets.PRIVATE_KEY}}
+        script: |
+          cd /home/ubuntu/House_Price_Prediction
+          export IMAGE_TAG=${{ github.sha }}
+          docker compose pull
+          docker compose up -d
+
+
+      
 
        
